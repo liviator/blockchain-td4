@@ -1,3 +1,5 @@
+By Henry FAURE-GEORS and Alexandre BAUCHET
+
 # programmation_blockchain_td4
 
 ## Install Truffle & create a truffle project:
