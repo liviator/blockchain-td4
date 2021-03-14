@@ -30,3 +30,17 @@ Installer [Ganache](https://www.trufflesuite.com/ganache]), l'ouvrir et faire **
 
 Dans le terminal de votre projet entrer:  
 `migrate`
+
+
+## Fonction du programme
+
+Concernant les fonctions basique de notre token ERC20, elles sont directement héritée depuis openzeppelin et n'ont pas besoin d'être à nouveau programmé, nous avons donc décidé de les laisser tels qu'elles étaient.
+
+Nous avons effectué la fonction GetToken que nous avons directement complété avec les autres parties du td. Ainsi, nous créons lors du déploiement du smart contract un mapping adresse -> uint de façon à pouvoir associer aux adresses de nos utilateurs des rangs (1, 2 ou 3) leur permettant d'obtenir plus de token lors de l'appel de la fonction.
+Nous sauvegardons également l'adresse ayant servis au déploiement que nous considererons comme étant l'adresse administrateur (permettant ainsi d'attribuer les rôles aux autres adresses de notre projet)
+
+Ainsi, l'administrateur a deux fontions. D'une part il attribue le rang dans la white list, mais il permet également de générer via un mint des token pour une adresse spécifique (fonction airdrop).
+
+Dans la fonction GetToken qui n'est utilisable que par les adresses ayant deja un rang, la quantité de token attribué dépends du rang mais également de la quantité d'ether envoyé au smart contract. Une bonne valeur pour tester l'efficacité du programme sans problème de supply sur ganache est de prendre la valeur 0.000000001 eth.
+
+Enfin, nous n'avons malheureusement pas réussi à implémenter un déploiement sur Rinkeby
